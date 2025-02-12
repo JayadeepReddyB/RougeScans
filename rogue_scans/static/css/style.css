@@ -1,0 +1,58 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    height: 50px;
+}
+
+body {
+    main {
+        /* max-width: 800px; */
+        width: 100%;
+        margin: auto;
+        margin-top: 51px;
+        margin-bottom: 20px;
+
+
+        /* Styling for home page */
+        .carousel {
+            height: 500px;
+            width: 100%;
+
+            .carousel-inner {
+                overflow: hidden;
+                height: 100%;
+
+                .carousel-item {
+                    height: 100%;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: contain;
+                        background-color: black;
+
+                        /* background-blend-mode:color-dodge; */
+                    }
+                }
+            }
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto;
+
+            .grid-item {
+                margin: 100px;
+            }
+        }
+
+    }
+}
