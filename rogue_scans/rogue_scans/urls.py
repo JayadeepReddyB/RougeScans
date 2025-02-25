@@ -22,7 +22,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mainapp.urls'))
+    path('', include('mainapp.urls')),
+    path('authentication/',include('authentication.urls')),
+    path('authentication/',include('django.contrib.auth.urls')) # logout is directly taken from here
 ]
 
 if settings.DEBUG == True:

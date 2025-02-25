@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<div class="carousel-container ">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" >
+        <div class="carousel-inner ">
+
+            {% for item in Mags %}
+            <div class="carousel-item {% if item.id == 1 %} active {% endif %}">
+                <img src="{{item.pic}}" class="d-block w-100" alt="Image of the Managa">
+            </div>
+            {% endfor %}
+
+            <!-- <img src="{% static 'images/carousel/img1.jpg' %}" class="d-block w-100" alt="..."> -->
+            <!-- </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel/img2.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel/img3.jpg' %}" class="d-block w-100" alt="...">
+            </div> -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div class="grid-container">
+    {% for item in Mags %}
+    <div class="grid-item ">
+        <div class="card mb-4" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4 ">
+                    <img src="{{item.pic}}" class="img-fluid rounded-start h-100" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <a href="{% url 'mag_details' item.id %}">
+                            <h5 class="card-title">{{item.name}}</h5>
+                        </a>
+                        <p class="card-text">{{item.desc}}</p>
+                        <!-- <div class="list-group  list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                                chapter {{item.id}}
+                            </a>
+                        </div> -->
+                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

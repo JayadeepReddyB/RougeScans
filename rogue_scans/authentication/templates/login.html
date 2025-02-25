@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    Rogue-Scans | Log in
+{% endblock %}
+
+{% block content %}
+<div class="form-div">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="btn btn-secondary">Log in</button>
+    </form>
+</div>
+{% endblock %}
