@@ -14,12 +14,12 @@ header {
 
 body {
     main {
-        max-width: 1100px;
+        max-width: 1250px;
         width: 100%;
         margin: auto;
         margin-top: 51px;
         margin-bottom: 20px;
-        background-color: aqua;
+        background-color: rgb(40, 51, 51);
 
         /* Styling for home page */
         .carousel {
@@ -53,8 +53,52 @@ body {
             .grid-item {
                 /* margin-left: 20px; */
                 margin-top: 20px;
+                .card{
+                    .row{
+                        .card-body{
+                            .card-text{
+                                margin: auto;
+                                /* background-color: aqua; */
+                                text-align: center;
+                                width: 250px;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 3;
+                                overflow: hidden;
+                                
+                            }
+                        }
+                    }
+                }
             }
         }
 
+        .today{
+            .row{
+                .col{
+                   .card{
+                       width: 230px;
+                       height: 300px;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                   } 
+                }
+            }
+        }
+
+        .ad-box{
+            color: rgb(132, 157, 180);
+            .ad-image{
+                margin-top: 30px ;
+                width: 100%;
+                height: 250px;
+                img{
+                    width: 100%;
+                    height: fit-content;
+                }
+            }
+        }
     }
 }

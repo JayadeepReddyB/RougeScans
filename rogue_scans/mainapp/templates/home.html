@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="carousel-container ">
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" >
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner ">
 
             {% for item in Mags %}
@@ -33,33 +33,71 @@
         </button>
     </div>
 </div>
-<div class="grid-container">
-    {% for item in Mags %}
-    <div class="grid-item ">
-        <div class="card mb-4" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4 ">
-                    <img src="{{item.pic}}" class="img-fluid rounded-start h-100" alt="...">
-                </div>
-                <div class="col-md-8">
+<div class="today bg-secondary bg-gradient text-white">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                Today's Popular
+            </div>
+        </div>
+        <div class="row row-cols-5 row-cols ">
+            {% for item in Mags %}
+            <div class="col">
+                <div class="card">
+                    <img src="{{item.pic}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <a href="{% url 'mag_details' item.id %}">
-                            <h5 class="card-title">{{item.name}}</h5>
-                        </a>
-                        <p class="card-text">{{item.desc}}</p>
-                        <!-- <div class="list-group  list-group-flush">
-                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                chapter {{item.id}}
-                            </a>
-                        </div> -->
-                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
-                        </p>
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <p class="card-text">chapter </p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
+
+</div>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="grid-container">
+                {% for item in Mags %}
+                <div class="grid-item ">
+                    <div class="card mb-4" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4 ">
+                                <img src="{{item.pic}}" class="img-fluid rounded-start h-100" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <a href="{% url 'mag_details' item.id %}">
+                                        <h5 class="card-title">{{item.name}}</h5>
+                                    </a>
+                                    <p class="card-text" id="desc">{{item.desc}}</p>
+                                    <!-- <div class="list-group  list-group-flush">
+                                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                                        chapter {{item.id}}
+                                    </a>
+                                </div> --><br>
+                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                            ago</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="ad-box">
+                <div class="ad-image">
+                    <img src="{% static 'images/ads/ad_img1.jpg' %}">
+                </div>
+                <a href="" class="btn btn-outline-info"><h4>Donations</h4></a>
+            </div>
+        </div>
+    </div>
 </div>
 
 
