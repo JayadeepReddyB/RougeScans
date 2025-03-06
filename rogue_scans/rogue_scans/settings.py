@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
-    'authentication'
+    'authentication',
+    'donations',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'signin'
 LOGIN_REDIRECT_URL = 'homepage'
 LOGOUT_REDIRECT_URL =  'homepage'
+
+# Razorpay configs
+
+RAZORPAY_KEY_ID = "rzp_test_0vcTXCUDN1gyGS"  # Replace with your Key ID
+RAZORPAY_KEY_SECRET = "jzcu2NPinafvTtsDQGGrzZX4"
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://api.razorpay.com',  # Add Razorpay's domain
+]
+TIME_ZONE = 'Asia/Kolkata'  # Change to your local time zone
+USE_TZ = True

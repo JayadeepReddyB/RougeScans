@@ -19,7 +19,7 @@ body {
         margin: auto;
         margin-top: 51px;
         margin-bottom: 20px;
-        background-color: rgb(40, 51, 51);
+        /* background-color: rgb(40, 51, 51); */
 
         /* Styling for home page */
         .carousel {

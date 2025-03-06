@@ -24,7 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mainapp.urls')),
     path('authentication/',include('authentication.urls')),
-    path('authentication/',include('django.contrib.auth.urls')) # logout is directly taken from here
+    path('authentication/',include('django.contrib.auth.urls')), # logout is directly taken from here
+    path('', include('donations.urls'))
 ]
 
 if settings.DEBUG == True:
