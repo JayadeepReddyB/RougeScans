@@ -25,7 +25,8 @@ urlpatterns = [
     path('', include('mainapp.urls')),
     path('authentication/',include('authentication.urls')),
     path('authentication/',include('django.contrib.auth.urls')), # logout is directly taken from here
-    path('', include('donations.urls'))
+    path('', include('donations.urls')),
+    path('',include('payments.urls'))
 ]
 
 if settings.DEBUG == True:

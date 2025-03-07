@@ -11,7 +11,7 @@ def create_donation(request):
     if request.method == "POST":
         form = DonationForm(request.POST)
         if form.is_valid():
-            amount = form.cleaned_data["Amount"]  # Get validated amount
+            amount = form.cleaned_data["amount"]  # Get validated amount
             # amount = form.save(commit=False)
 
             
@@ -23,7 +23,7 @@ def create_donation(request):
             )
 
              # Redirect to Razorpay payment processing
-            return redirect('payment:create_razorpay_order', donation_id=donation.id)
+            return redirect('payment:create_razorpay_order', donation_id = donation.id)
 
         else:
             messages.error(request, "Invalid amount entered.")

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mainapp',
     'authentication',
     'donations',
+    'payments'
 ]
 
 MIDDLEWARE = [

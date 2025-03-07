@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             name='Donation',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Amount', models.BigIntegerField()),
+                ('Amount', models.PositiveBigIntegerField()),
                 ('donation_date', models.DateTimeField(auto_now_add=True)),
                 ('status', models.CharField(choices=[('PENDING', 'Pending'), ('COMPLETED', 'Completed')], max_length=20)),
                 ('razorpay_order_id', models.CharField(max_length=255)),
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             name='DonationDetails',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Amount', models.BigIntegerField()),
+                ('Amount', models.PositiveBigIntegerField()),
                 ('donation', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='donation_details', to='donations.donation')),
             ],
         ),

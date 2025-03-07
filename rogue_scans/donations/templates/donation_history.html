@@ -24,7 +24,7 @@ donation History
             <td>#{{ donation.id }}</td>
             <td>{{ donation.donation_date|date:"d M Y, H:i" }}</td>
             <td>{{ donation.status }}</td>
-            <td>₹{{ donation.total_amount }}</td>
+            <td>₹{{ donation.amount }}</td>
             <td>
                 {% if donation.status == 'PENDING' %}
                     <a href="{% url 'payment:create_razorpay_order' donation.id %}" class="btn btn-success btn-sm">

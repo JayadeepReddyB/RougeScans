@@ -14,7 +14,7 @@ class Donation(models.Model):
     
 class DonationDetails(models.Model):
     donation = models.ForeignKey(Donation, related_name="donation_details", on_delete=models.CASCADE)
-    amount = models.BigIntegerField()
+    amount = models.PositiveBigIntegerField()
 
     def __str__(self):
         return f"Detail for donation {self.donation.id}"
