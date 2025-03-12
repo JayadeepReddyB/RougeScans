@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from django.template import loader
 
-from .models import Manga
+from .models import Manga,Chapter
 
 # from django.views.generic import ListView
 # Create your views here.
@@ -19,9 +19,11 @@ def index(request):
 
 def manga_details(request, id):
     manga = Manga.objects.get(id = id) 
+    chapters = Chapter.objects.all().order_by('-chapter_number')
     context = {
         'Mag' : manga,
-        'current_page' : 'home'
+        'chapts' : chapters,
+        'current_page' : 'details'
     }
     template = loader.get_template('manga_details.html')
     return HttpResponse(template.render(context, request))
@@ -38,3 +40,12 @@ def manga(request):  # This is equivalent to ListView
     } # context dictionary for passing data for rendering 
     template = loader.get_template('manga.html') # creating a template object from the designed template html
     return HttpResponse(template.render(context, request))
+
+# def chapter(request):
+#     chapters = Chapter.objects.all()
+
+#     context = {
+#         'chapts' : chapters 
+#     }
+#     template = loader.get_template('')
+#     return HttpResponse(template.render(context, request))
