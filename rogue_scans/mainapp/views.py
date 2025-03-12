@@ -10,6 +10,11 @@ from .models import Manga,Chapter
 
 def index(request):
     mangas = Manga.objects.all()
+    # I want to create a chapter view specific for the manga to shown in the index page 
+    # So, How to create a view for that??
+    # chapters = Chapter.objects.filter(manga=manga.id).order_by('-chapter_number')
+
+
     context = {
         'Mags' : mangas,
         'current_page' : 'home'
@@ -19,7 +24,7 @@ def index(request):
 
 def manga_details(request, id):
     manga = Manga.objects.get(id = id) 
-    chapters = Chapter.objects.all().order_by('-chapter_number')
+    chapters = Chapter.objects.filter(manga=manga).order_by('-chapter_number')
     context = {
         'Mag' : manga,
         'chapts' : chapters,

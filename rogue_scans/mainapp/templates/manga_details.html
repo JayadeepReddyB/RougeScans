@@ -14,7 +14,7 @@
         <div class="col-sm-4">
             <div class="mag-pic">
                 {% if Mag.pic %}
-                <img src="{{ Mag.pic.url }}"  alt="">
+                <img src="{{ Mag.pic.url }}" alt="">
                 {% endif %}
             </div>
         </div>
@@ -27,25 +27,23 @@
     </div>
     <div class="row">
         <div class="chapters">
-            {% for item in chapts %}
-            <div class= "row">
+            <div class="row">
                 <div class="col-sm-4">
-                    {{item.title}}
+                    Title
                 </div>
                 <div class="col-sm-2">
-                    chapter {{item.chapter_number}}
+                    Chapters
                 </div>
                 <div class="col-sm-2">
-                    {{item.release_date}}
+                    Release Date
                 </div>
             </div>
-            {% endfor %}
-          </div>
-    </div>m=
+        </div>
+    </div>
     <div class="row">
         <div class="chapters">
             {% for item in chapts %}
-            <div class= "row">
+            <div class="row">
                 <div class="col-sm-4">
                     {{item.title}}
                 </div>
@@ -57,7 +55,7 @@
                 </div>
             </div>
             {% endfor %}
-          </div>
+        </div>
     </div>
 </div>
 

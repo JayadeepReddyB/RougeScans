@@ -13,21 +13,18 @@ header {
 }
 
 #Body {
-    background-color: #1D1340;
-    
+    background-color: #363432;
+
 }
 
 body {
-    /* background-color: rgb(1, 20, 20); */
-    /* margin-top: 500px; */
     main {
-        /* background-color: rgb(53, 17, 17); */
         max-width: 1250px;
         width: 100%;
         margin: auto;
         margin-top: 60px;
         margin-bottom: 20px;
-        background-color: #2d097a;
+        background-color: #90A19D;
         box-shadow: 2px 2px 5px 5px lavender;
 
         /* Styling for home page */
@@ -36,6 +33,7 @@ body {
             width: 100%;
             margin-bottom: 50px;
             top: 30px;
+
             .carousel-inner {
                 overflow: hidden;
                 height: 100%;
@@ -49,32 +47,30 @@ body {
                         object-fit: contain;
                         background-color: black;
 
-                        /* background-blend-mode:color-dodge; */
                     }
                 }
             }
         }
-        
+
         .grid-container {
             display: grid;
             grid-template-rows: auto;
 
             .grid-item {
-                /* margin-left: 20px; */
                 margin-top: 20px;
-                .card{
-                    .row{
-                        .card-body{
-                            .card-text{
+
+                .card {
+                    .row {
+                        .card-body {
+                            .card-text {
                                 margin: auto;
-                                /* background-color: aqua; */
                                 text-align: center;
                                 width: 250px;
                                 display: -webkit-box;
                                 -webkit-box-orient: vertical;
                                 -webkit-line-clamp: 3;
                                 overflow: hidden;
-                                
+
                             }
                         }
                     }
@@ -82,64 +78,139 @@ body {
             }
         }
 
-        .today{
-            .row{
-                .col{
-                   .card{
-                       width: 230px;
-                       height: 300px;
-                    img{
+        .today {
+            margin-bottom: 20px;
+
+            #card-row {
+                height: 340px;
+
+                /* background-color:violet; */
+                .card {
+                    width: 230px;
+                    height: 340px;
+                    /* background-color: aqua; */
+
+                    img {
                         width: 100%;
-                        height: 100%;
+                        height: 70%;
+                        object-fit: cover;
                     }
-                   } 
+
+                    .card-body {
+                        h5 {
+                            font-size: medium;
+                            height: 50%;
+                            /* background-color: aqua; */
+                        }
+
+                        p {
+                            height: 50%;
+                            /* background-color: #363432; */
+                        }
+                    }
                 }
             }
         }
 
-        .ad-box{
-            color: rgb(132, 157, 180);
-            .ad-image{
-                margin-top: 30px ;
+        .ad-box {
+            /* color: rgb(8, 99, 184); */
+
+            .ad-image {
+                margin-top: 30px;
                 width: 100%;
                 height: 250px;
-                img{
+
+                img {
                     width: 100%;
                     height: fit-content;
                 }
             }
+
+            a {
+                color: rgb(2, 109, 109);
+            }
         }
 
-        .container{
-            /* background-color: blueviolet; */
-            /* height: 100%;     */
-            .row{
-                .mag-pic{
+        .card-group {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 15px;
+            margin: 15px;
+
+            .card {
+                margin-top: 25px;
+                background-color: rgb(238, 238, 149);
+                height: 470px;
+
+                img {
+                    width: 100%;
+                    height: 250px;
+                }
+
+                h5 {
+                    height: 25%;
+                    text-align: center;
+                }
+
+                .card-text {
+                    /* height: 75%; */
+                    margin: auto;
+                    text-align: center;
+                    width: 250px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 4;
+                    overflow: hidden;
+
+                }
+
+                a:link {
+                    color: rgb(1, 109, 160);
+                    text-decoration: underline #363432;
+                }
+                a:visited {
+                    color: rgb(39, 43, 39);
+                }
+                a:hover {
+                    color: rgb(38, 158, 214);
+                }
+                a:active {
+                    color: yellow;
+                }
+            }
+        }
+
+        .container {
+
+            .row {
+
+                .mag-pic {
                     background-color: aqua;
                     margin: 25px;
-                    /* padding-top: 40px; */
                     width: 400px;
                     height: 430px;
-                    img{
+
+                    img {
                         width: 100%;
                         height: 100%;
                         object-fit: fill;
                     }
                 }
 
-                .mag-details{
+                .mag-details {
                     background-color: aquamarine;
                     margin: 25px;
                     margin-top: 80px;
-                    /* width: ; */
-                    p{  
-                        font-family:monospace;
+
+                    p {
+                        font-family: monospace;
                     }
                 }
 
-                .chapters{
+                .chapters {
                     background-color: #393444;
                     color: aliceblue;
+                    padding-top: 15px;
                 }
             }
         }
