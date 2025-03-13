@@ -54,3 +54,13 @@ def manga(request):  # This is equivalent to ListView
 #     }
 #     template = loader.get_template('')
 #     return HttpResponse(template.render(context, request))
+
+def searchView(request):
+    query = request.GET.get('search_text') # fetch the query text from GET request
+    results = Manga.objects.filter(name__icontains = query) # collect the product object matching the name
+    context = {
+        'items' : results,
+        'query' : query
+    }
+    template = loader.get_template('searchResults.html')
+    return HttpResponse(template.render(context, request))

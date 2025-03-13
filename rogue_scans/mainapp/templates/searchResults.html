@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+search for {{query}}
+{% endblock %}
+
+{% block content %}
+<h2>Search results for : '{{query}}'</h2>
+<div class="card-group">
+    {% for item in items %}
+    <div class="card">
+    {% if item.pic %}
+      <img src="{{item.pic.url}}" class="card-img-top" alt="An image of {{item.name}}">
+    {% else %}
+        <img src="{% static 'images/carouselimg1.jpg' %}" class="card-img-top">
+    {% endif %}
+        
+      <div class="card-body">
+        
+        <a href="{% url 'mag_details' item.id %}">
+          <h5 class="card-title">{{item.name}}</h5>
+        </a>
+        <p class="card-text">{{item.desc}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
