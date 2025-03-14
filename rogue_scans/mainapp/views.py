@@ -1,9 +1,13 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
+from django.urls import reverse_lazy
+
 from django.template import loader
 
 from .models import Manga,Chapter
+
+from django.views.generic import CreateView,UpdateView 
 
 # from django.views.generic import ListView
 # Create your views here.
@@ -46,15 +50,6 @@ def manga(request):  # This is equivalent to ListView
     template = loader.get_template('manga.html') # creating a template object from the designed template html
     return HttpResponse(template.render(context, request))
 
-# def chapter(request):
-#     chapters = Chapter.objects.all()
-
-#     context = {
-#         'chapts' : chapters 
-#     }
-#     template = loader.get_template('')
-#     return HttpResponse(template.render(context, request))
-
 def searchView(request):
     query = request.GET.get('search_text') # fetch the query text from GET request
     results = Manga.objects.filter(name__icontains = query) # collect the product object matching the name
@@ -64,3 +59,20 @@ def searchView(request):
     }
     template = loader.get_template('searchResults.html')
     return HttpResponse(template.render(context, request))
+
+# 1. C - Create
+class AddManga(CreateView):
+    model = Manga # specifying the schema to insert record into
+    fields = '__all__'
+    template_name = 'addManga.html'
+    success_url = reverse_lazy('mangas') # redirect to products page after adding product
+
+class AddChapter(CreateView):
+    model = Chapter
+    fields = '__all__'
+    template_name = 'addChapter.html'
+    success_url = reverse_lazy('mag_details')
+
+
+    
+
