@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block title %}
+Delete Chapter
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+</form>
+<a href="{% url 'mag_details' Mag.id %}" class="btn btn-outline-secondary">Cancel</a                                               >
+
+{% endblock %}

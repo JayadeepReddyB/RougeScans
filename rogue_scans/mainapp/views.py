@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 from django.template import loader
 
@@ -73,6 +73,17 @@ class AddChapter(CreateView):
     template_name = 'addChapter.html'
     success_url = reverse_lazy('mag_details')
 
+class EditManga(UpdateView):
+    model = Manga
+    fields = "__all__"
+    template_name = 'editManga.html'
+    # success_url = reverse_lazy('mag_details Mag.id') # The reverse_lazy the id format is not proper 
+    def get_success_url(self):
+        return reverse('mag_details', kwargs={'id' : self.object.pk})
+class EditChapter(UpdateView):
+    model = Chapter
+    fields = "__all__"
+    template_name = "editChapter.html"
+    # success_url = reverse_lazy('mag_details Mag.id')
 
-    
 
