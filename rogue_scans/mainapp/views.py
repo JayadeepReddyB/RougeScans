@@ -7,7 +7,7 @@ from django.template import loader
 
 from .models import Manga,Chapter
 
-from django.views.generic import CreateView,UpdateView 
+from django.views.generic import CreateView,UpdateView,DeleteView
 
 # from django.views.generic import ListView
 # Create your views here.
@@ -71,7 +71,8 @@ class AddChapter(CreateView):
     model = Chapter
     fields = '__all__'
     template_name = 'addChapter.html'
-    success_url = reverse_lazy('mag_details')
+    def get_success_url(self):
+        return reverse('mag_details', kwargs={'id' : self.object.manga.id})
 
 class EditManga(UpdateView):
     model = Manga
@@ -82,8 +83,19 @@ class EditManga(UpdateView):
         return reverse('mag_details', kwargs={'id' : self.object.pk})
 class EditChapter(UpdateView):
     model = Chapter
-    fields = "__all__"
+    fields = ["title", "chapter_number", "release_date"]
     template_name = "editChapter.html"
-    # success_url = reverse_lazy('mag_details Mag.id')
+    def get_success_url(self):
+        return reverse('mag_details', kwargs={'id' : self.object.manga.id})
+    
+class DelManga(DeleteView):
+    model = Manga
+    template_name = 'delManga.html'
+    success_url = reverse_lazy('mangas')
 
+class DelChapter(DeleteView):
+    model = Chapter
+    template_name = 'delChapter.html'
+    def get_success_url(self):
+        return reverse('mag_details', kwargs={'id' : self.object.manga.id})
 

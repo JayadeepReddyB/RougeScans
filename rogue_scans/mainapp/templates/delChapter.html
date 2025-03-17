@@ -10,6 +10,6 @@ Delete Chapter
     {{ form.as_p }}
     <button type="submit" class="btn btn-danger">Confirm Delete</button>
 </form>
-<a href="{% url 'mag_details' Mag.id %}" class="btn btn-outline-secondary">Cancel</a                                               >
+<a href="{% url 'mag_details' chapter.manga.id %}" class="btn btn-outline-secondary">Cancel</a                                               >
 
 {% endblock %}

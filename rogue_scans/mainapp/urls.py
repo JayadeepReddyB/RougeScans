@@ -9,6 +9,7 @@ urlpatterns =[
     path('mangas/add', views.AddManga.as_view(), name = 'add_manga'),
     path('chapters/add',views.AddChapter.as_view(), name = 'add_chapter'),
     path('mangas/edit/<int:pk>', views.EditManga.as_view(), name = 'edit_mag'),
-
-
+    path('chapter/edit/<int:pk>', views.EditChapter.as_view(), name = 'edit_chapt'),
+    path('mangas/del/<int:pk>', views.DelManga.as_view(), name = 'del_mag'),
+    path('chapters/del/<int:pk>', views.DelChapter.as_view(), name = 'del_chapt'),
 ]
