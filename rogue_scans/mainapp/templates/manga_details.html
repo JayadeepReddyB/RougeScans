@@ -24,12 +24,16 @@
                 <p>{{Mag.desc}}</p>
             </div>
             <div class="row">
+                {% if user.is_authenticated %}
+                {% if user.is_staff %}
                 <div class="col-sm-4">
                     <a href="{% url 'edit_mag' Mag.id %}" class="btn btn-outline-success">Edit Manga</a>
                 </div>
                 <div class="col-sm-4">
                     <a href="{% url 'del_mag' Mag.id %}" class="btn btn-outline-success">Delete Manga</a>
                 </div>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
@@ -61,12 +65,16 @@
                 <div class="col-sm-2">
                     {{item.release_date}}
                 </div>
+                {% if user.is_authenticated %}
+                {% if user.is_staff %}
                 <div class="col-sm-2">
                     <a href="{% url 'edit_chapt' item.id %}" class="btn btn-outline-success">Edit Chapter</a>
                 </div>
                 <div class="col-sm-2">
                     <a href="{% url 'del_chapt' item.id %}" class="btn btn-outline-success">Delete Chapter</a>
                 </div>
+                {% endif %}
+                {% endif %}
             </div>
             {% endfor %}
         </div>
