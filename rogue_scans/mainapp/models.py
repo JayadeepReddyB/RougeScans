@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -20,4 +21,15 @@ class Chapter(models.Model):
         return f"{self.manga.name} - Chapter {self.chapter_number}: {self.title}"
     
 
+def chapter_image_upload_path(instance,filename):
+    safe_title = slugify(instance.chapter.title)
+    return f"chapters/{safe_title}/{filename}"
 
+
+class ChapterImage(models.Model):
+    id = models.PositiveBigIntegerField(primary_key=True,auto_created=True)
+    chapter = models.ForeignKey(Chapter,on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=chapter_image_upload_path)
+
+
+    

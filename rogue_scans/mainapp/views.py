@@ -1,13 +1,13 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 
 from django.urls import reverse_lazy, reverse
 
 from django.template import loader
 
-from .models import Manga,Chapter
+from .models import Manga,Chapter,ChapterImage
 
-from django.views.generic import CreateView,UpdateView,DeleteView
+from django.views.generic import CreateView,UpdateView,DeleteView,ListView
 
 # from django.views.generic import ListView
 # Create your views here.
@@ -16,7 +16,7 @@ def index(request):
     mangas = Manga.objects.all()
     # I want to create a chapter view specific for the manga to shown in the index page 
     # So, How to create a view for that??
-    # chapters = Chapter.objects.filter(manga=manga.id).order_by('-chapter_number')
+    chapters = Chapter.objects.filter(manga=manga.id).order_by('-chapter_number')
 
 
     context = {
@@ -26,9 +26,11 @@ def index(request):
     template = loader.get_template('home.html')
     return HttpResponse(template.render(context, request))
 
-def manga_details(request, id):
-    manga = Manga.objects.get(id = id) 
+def manga_details(request, name,id):
+    # manga = Manga.objects.get(name= name,id = id) 
+    manga = get_object_or_404(Manga, name=name, id=id)
     chapters = Chapter.objects.filter(manga=manga).order_by('-chapter_number')
+
     context = {
         'Mag' : manga,
         'chapts' : chapters,
@@ -98,4 +100,20 @@ class DelChapter(DeleteView):
     template_name = 'delChapter.html'
     def get_success_url(self):
         return reverse('mag_details', kwargs={'id' : self.object.manga.id})
+    
+def chapter_details(request,chapter_id):
+    
+    chapter = get_object_or_404(Chapter, id=chapter_id)
+
+    chapter_images = ChapterImage.objects.filter(chapter = chapter)
+
+    context = {
+        'chapt' : chapter,
+        'chapt_img' : chapter_images
+    }
+
+    template = loader.get_template('chapter_details.html')
+    return HttpResponse(template.render(context, request))
+
+
 

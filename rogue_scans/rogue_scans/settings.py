@@ -147,3 +147,4 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 TIME_ZONE = 'Asia/Kolkata'  # Change to your local time zone
 USE_TZ = True
+

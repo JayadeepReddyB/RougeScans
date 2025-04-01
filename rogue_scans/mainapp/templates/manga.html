@@ -13,7 +13,7 @@
 
     <div class="card-body">
       
-      <a href="{% url 'mag_details' item.id %}">
+      <a href="{% url 'mag_details' item.name item.id %}">
         <h5 class="card-title">{{item.name}}</h5>
       </a>
       <p class="card-text">{{item.desc}}</p>
