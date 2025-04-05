@@ -6,6 +6,7 @@ from django.urls import reverse_lazy, reverse
 from django.template import loader
 
 from .models import Manga,Chapter,ChapterImage
+from django.db.models import Prefetch
 
 from django.views.generic import CreateView,UpdateView,DeleteView,ListView
 
@@ -13,11 +14,11 @@ from django.views.generic import CreateView,UpdateView,DeleteView,ListView
 # Create your views here.
 
 def index(request):
-    mangas = Manga.objects.all()
-    # I want to create a chapter view specific for the manga to shown in the index page 
-    # So, How to create a view for that??
-    chapters = Chapter.objects.filter(manga=manga.id).order_by('-chapter_number')
-
+    # mangas = Manga.objects.all()
+    # chapters = Chapter.objects.filter(manga=manga.id).order_by('-chapter_number')
+    mangas = Manga.objects.prefetch_related(
+        Prefetch('chapter_set',queryset = Chapter.objects.order_by('-chapter_number'),to_attr = 'latest_chapters')
+    )
 
     context = {
         'Mags' : mangas,
@@ -27,7 +28,7 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def manga_details(request, name,id):
-    # manga = Manga.objects.get(name= name,id = id) 
+    # manga = Manga.objects.get(name= name,id = id)
     manga = get_object_or_404(Manga, name=name, id=id)
     chapters = Chapter.objects.filter(manga=manga).order_by('-chapter_number')
 
@@ -74,7 +75,7 @@ class AddChapter(CreateView):
     fields = '__all__'
     template_name = 'addChapter.html'
     def get_success_url(self):
-        return reverse('mag_details', kwargs={'id' : self.object.manga.id})
+        return reverse('mag_details', kwargs={'name': self.object.manga.name,'id' : self.object.manga.id})
 
 class EditManga(UpdateView):
     model = Manga
@@ -88,7 +89,7 @@ class EditChapter(UpdateView):
     fields = ["title", "chapter_number", "release_date"]
     template_name = "editChapter.html"
     def get_success_url(self):
-        return reverse('mag_details', kwargs={'id' : self.object.manga.id})
+        return reverse('mag_details', kwargs={'name': self.object.manga.name,'id' : self.object.manga.id})
     
 class DelManga(DeleteView):
     model = Manga
@@ -116,4 +117,9 @@ def chapter_details(request,chapter_id):
     return HttpResponse(template.render(context, request))
 
 
-
+class AddChapter(CreateView):
+    model = ChapterImage
+    fields = '__all__'
+    template_name = 'addChapterImage.html'
+    def get_success_url(self):
+        return reverse('chapter_details', kwargs={'name': self.object.manga.name,'id' : self.object.manga.id})

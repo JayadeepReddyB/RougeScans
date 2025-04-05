@@ -6,6 +6,7 @@ urlpatterns =[
     path('',views.index, name = "homepage"),
     path('mangas/', views.manga, name='mangas'),
     path('mangas/<str:name>/<int:id>', views.manga_details, name = 'mag_details'),
+    path('chapter/<int:chapter_id>', views.chapter_details, name='chapter_details'),
     path('mangas/search', views.searchView, name='mag_search'),
     path('mangas/add', views.AddManga.as_view(), name = 'add_manga'),
     path('chapters/add',views.AddChapter.as_view(), name = 'add_chapter'),

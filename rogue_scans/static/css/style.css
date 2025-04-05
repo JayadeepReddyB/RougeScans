@@ -62,16 +62,58 @@ body {
                 .card {
                     .row {
                         .card-body {
+                            position: relative;
+                            /* background-color: aquamarine; */
+                            width: 310px;
+                            height: 200px;
+                            margin-left: 10px;  
+                            
                             .card-text {
-                                margin: auto;
                                 text-align: center;
-                                width: 250px;
-                                display: -webkit-box;
-                                -webkit-box-orient: vertical;
-                                -webkit-line-clamp: 3;
-                                overflow: hidden;
+                                width: 100%;
+                                /* background-color: aqua; */
 
                             }
+                            
+                            h5{
+                                margin-bottom: 15px;
+                            }
+                            
+                            .card-text-row {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                width: 110%;
+                                /* gap: -5px; */
+                                line-height: 1;
+                            
+                            }
+                            
+                            .card-text1 {
+                                /* background-color: #8d532c; */
+                                font-size: 0.95em;
+                                padding: 2px 5px;
+                                /* color: white; */
+                                border-radius: 4px;
+                                margin-left: 10px;
+
+                            }
+                            
+                            .card-text3 {
+                                /* background-color: #90A19D; */
+                                font-size: 0.95em;
+                                padding: 2px 5px;
+                                /* color: white; */
+                                border-radius: 4px;
+                                width: 200px;
+                            }
+
+                            .card-text2{
+                                width: 95%;
+                                position: absolute;
+                                bottom: 0;
+                            }
+                            
                         }
                     }
                 }

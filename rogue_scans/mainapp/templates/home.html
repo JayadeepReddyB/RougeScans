@@ -49,7 +49,7 @@
                         <h5 class="card-title">{{item.name}}</h5>
                         <p class="card-text">chapter </p>
                     </div>
-                </div>  
+                </div>
             </div>
             {% endfor %}
         </div>
@@ -72,9 +72,16 @@
                                     <a href="{% url 'mag_details' item.name item.id %}">
                                         <h5 class="card-title">{{item.name}}</h5>
                                     </a>
-                                    <p class="card-text" id="desc">{{item.desc}}</p>
-                                    <br>
-                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                    
+                                    {% for chapter in item.latest_chapters|slice:3 %}
+                                    <div class="card-text-row">
+                                        <p class="card-text1">Chapter {{chapter.chapter_number}} -</p>
+                                        <p class="card-text3">{{chapter.title}}</p>
+                                    </div>
+                                    {% empty %}
+                                        <p class="card-text">Coming Soon...</p>
+                                    {% endfor %}
+                                    <p class="card-text2"><small class="text-body-secondary">Last updated 3 mins
                                             ago</small>
                                     </p>
                                 </div>
@@ -90,12 +97,13 @@
                 <div class="ad-image">
                     <img src="{% static 'images/ads/ad_img1.jpg' %}">
                 </div>
-                <a href="{% url 'create_donation' %}" class="btn btn-outline-info"><h4>Donations</h4></a>
+                <a href="{% url 'create_donation' %}" class="btn btn-outline-info">
+                    <h4>Donations</h4>
+                </a>
 
             </div>
         </div>
     </div>
 </div>
-
 
 {% endblock %}
