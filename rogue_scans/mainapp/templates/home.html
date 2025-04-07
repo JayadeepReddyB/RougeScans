@@ -43,7 +43,7 @@
         <div class="row row-cols-5 row-cols " id="card-row">
             {% for item in Mags %}
             <div class="col">
-                <div class="card">
+                <div class="card {% if forloop.first %}latest-chapter{% endif %}">
                     <img src="{{item.pic}}" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{item.name}}</h5>
@@ -72,14 +72,16 @@
                                     <a href="{% url 'mag_details' item.name item.id %}">
                                         <h5 class="card-title">{{item.name}}</h5>
                                     </a>
-                                    
+
                                     {% for chapter in item.latest_chapters|slice:3 %}
                                     <div class="card-text-row">
-                                        <p class="card-text1">Chapter {{chapter.chapter_number}} -</p>
-                                        <p class="card-text3">{{chapter.title}}</p>
+                                        <a href="{% url 'chapter_details' chapter.id %}" class="chapt_link">
+                                            <p class="card-text1">Chapter {{chapter.chapter_number}} -</p>
+                                            <p class="card-text3">{{chapter.title}}</p>
+                                        </a>
                                     </div>
                                     {% empty %}
-                                        <p class="card-text">Coming Soon...</p>
+                                    <p class="card-text">Coming Soon...</p>
                                     {% endfor %}
                                     <p class="card-text2"><small class="text-body-secondary">Last updated 3 mins
                                             ago</small>

@@ -105,16 +105,20 @@ class DelChapter(DeleteView):
 def chapter_details(request,chapter_id):
     
     chapter = get_object_or_404(Chapter, id=chapter_id)
-
     chapter_images = ChapterImage.objects.filter(chapter = chapter)
+    all_chapters = Chapter.objects.filter(manga=chapter.manga).order_by('chapter_number')
+
+    prev_chapter = all_chapters.filter(chapter_number__lt=chapter.chapter_number).last()
+    next_chapter = all_chapters.filter(chapter_number__gt=chapter.chapter_number).first()
 
     context = {
-        'chapt' : chapter,
-        'chapt_img' : chapter_images
+        'chapt': chapter,
+        'chapt_img': chapter_images,
+        'all_chapters': all_chapters,
+        'prev_chapter': prev_chapter,
+        'next_chapter': next_chapter
     }
-
-    template = loader.get_template('chapter_details.html')
-    return HttpResponse(template.render(context, request))
+    return render(request, 'chapter_details.html', context)
 
 
 class AddChapter(CreateView):
@@ -122,4 +126,4 @@ class AddChapter(CreateView):
     fields = '__all__'
     template_name = 'addChapterImage.html'
     def get_success_url(self):
-        return reverse('chapter_details', kwargs={'name': self.object.manga.name,'id' : self.object.manga.id})
+        return reverse('chapter_details', kwargs={'chapter_id': self.object.chapter.id})

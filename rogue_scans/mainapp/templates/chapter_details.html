@@ -1,0 +1,128 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+{{chapt.manga.name}}
+{% endblock %}
+
+{% block content %}
+
+<div class="chapter_details">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb ">
+            <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Home</a></li>
+            <li class="breadcrumb-item"><a
+                    href="{% url 'mag_details' chapt.manga.name chapt.manga.id %}">{{chapt.manga.name}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Chapter {{chapt.chapter_number}}</li>
+        </ol>
+    </nav>
+    {% if user.is_authenticated %}
+    {% if user.is_staff %}
+    <div class="edit_delete col-md-4">
+        <a href="{% url 'add_chapter_image' %}" class="col-md-2" title="Add Chapter Image">
+            <img src="{% static 'images/other/img1.png' %}" alt="" >
+        </a>
+        <a href="#" class="col-md-2">
+            <img src="{% static 'images/other/img2.png' %}" alt="" title="Edit Chapter Image">
+        </a>
+        <a href="#" class="col-md-2">
+            <img src="{% static 'images/other/img3.png' %}" alt="" title="Delete Chapter Image">
+        </a>
+    </div>
+    {% endif %}
+    {% endif %}
+</div>
+<div class="chapter_details2">
+    <div class="chapt_select">
+
+        {% if prev_chapter %}
+        <a href="{% url 'chapter_details' prev_chapter.id %}" class="btn btn-outline-secondary">
+            ← Chapter {{ prev_chapter.chapter_number }}
+        </a>
+        {% else %}
+        <span class="btn btn-outline-secondary disabled">← No Previous</span>
+        {% endif %}
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Chapter {{ chapt.chapter_number }}
+            </button>
+            <ul class="dropdown-menu">
+                {% for item in all_chapters %}
+                <li>
+                    <a class="dropdown-item {% if item.id == chapt.id %}active{% endif %}"
+                        href="{% url 'chapter_details' item.id %}">
+                        Chapter {{ item.chapter_number }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if next_chapter %}
+        <a href="{% url 'chapter_details' next_chapter.id %}" class="btn btn-outline-secondary">
+            Chapter {{ next_chapter.chapter_number }} →
+        </a>
+        {% else %}
+        <span class="btn btn-outline-secondary disabled">No Next →</span>
+        {% endif %}
+
+
+    </div>
+
+    <div class="chapter_images">
+        {% for item in chapt_img %}
+
+        {% if item.image %}
+        <img class="images" src="{{item.image.url}}" alt="">
+        {% else %}
+        <span>Coming Soon....</span>
+        {% endif %}
+
+        {% empty %}
+        <div class="animation">
+            <video autoplay loop muted class="stay-tuned-video">
+                <source src="{% static 'video/stay-tuned.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="last_select">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Chapter {{ chapt.chapter_number }}
+            </button>
+            <ul class="dropdown-menu">
+                {% for item in all_chapters %}
+                <li>
+                    <a class="dropdown-item {% if item.id == chapt.id %}active{% endif %}"
+                        href="{% url 'chapter_details' item.id %}">
+                        Chapter {{ item.chapter_number }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if next_chapter %}
+        <a href="{% url 'chapter_details' next_chapter.id %}" class="btn btn-outline-secondary">
+            Chapter {{ next_chapter.chapter_number }} →
+        </a>
+        {% else %}
+        <span class="btn btn-outline-secondary disabled">No Next →</span>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<div class="return">
+    <a href="#" class="btn btn-outline-light">
+        <span>&uarr; </span>
+    </a>
+</div>
+{% endblock %}

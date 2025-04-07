@@ -23,7 +23,7 @@
                 <h4><strong><u>{{Mag.name}}</u></strong></h4><br>
                 <p>{{Mag.desc}}</p>
             </div>
-            <div class="row">
+            <div class="row1">
                 {% if user.is_authenticated %}
                 {% if user.is_staff %}
                 <div class="col-sm-4">
@@ -57,7 +57,9 @@
             {% for item in chapts %}
             <div class="row">
                 <div class="col-sm-4">
+                <a href="{% url 'chapter_details' item.id %}">
                     {{item.title}}
+                </a>
                 </div>
                 <div class="col-sm-2">
                     chapter {{item.chapter_number}}
