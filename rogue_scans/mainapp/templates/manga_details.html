@@ -20,6 +20,7 @@
         </div>
         <div class="col-sm-8">
             <div class="mag-details">
+                {{Mag.id}}
                 <h4><strong><u>{{Mag.name}}</u></strong></h4><br>
                 <p>{{Mag.desc}}</p>
             </div>
@@ -45,6 +46,9 @@
                 </div>
                 <div class="col-sm-2">
                     Chapters
+                    <img id="reverseIcon" src="{% static 'images/other/swap.png' %}" alt="Reverse Order" 
+                    style="width: 20px; height: 20px; cursor: pointer; margin-left: 5px;" 
+                    title="Reverse Chapter Order">
                 </div>
                 <div class="col-sm-2">
                     Release Date
@@ -53,9 +57,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="chapters">
+        <div class="chapters" id="chapterRows">
             {% for item in chapts %}
-            <div class="row">
+            <div class="row chapter-row">
                 <div class="col-sm-4">
                 <a href="{% url 'chapter_details' item.id %}">
                     {{item.title}}
@@ -82,5 +86,7 @@
         </div>
     </div>
 </div>
+
+<script src="{% static 'js/script.js' %}"></script>
 
 {% endblock %}
