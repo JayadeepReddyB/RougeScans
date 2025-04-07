@@ -26,6 +26,7 @@ body {
         background-color: rgb(14, 13, 13);
         box-shadow: 2px 2px 5px 5px lavender;
 
+
         /* Styling for home page */
         .carousel {
             height: 400px;
@@ -60,6 +61,9 @@ body {
 
                 .card {
                     .row {
+                        background-color: #5e5a66;
+                        height: 200px;
+
                         .card-body {
                             position: relative;
                             /* background-color: aquamarine; */
@@ -74,9 +78,37 @@ body {
 
                             }
 
-                            h5 {
-                                margin-bottom: 15px;
+                            h4 {
+                                height: 50px;
+                                /* background-color: #FDF6E3; */
                             }
+
+
+                            .card-title {
+                                font-size: medium;
+
+                            }
+
+                            .card-title:visited {
+                                color: rgb(226, 233, 226);
+                            }
+
+                            .card-title:hover {
+                                /* background-color: #393444; */
+                                color: rgb(38, 158, 214);
+                                text-decoration: none;
+                                border-radius: 35px;
+                                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            }
+
+                            .card-title:active {
+                                color: white;
+                            }
+
+                            /* .card-mid{
+                                height: ;
+                            } */
+
 
                             .card-text-row {
                                 display: flex;
@@ -84,13 +116,21 @@ body {
                                 align-items: center;
                                 width: 110%;
                                 /* gap: -5px; */
-                                line-height: 1;
+                                line-height: 0.2;
 
                             }
 
                             .chapt_link {
                                 display: flex;
                                 flex-direction: row;
+
+                                p {
+                                    height: 20px;
+                                    /* margin-bottom: 20px; */
+                                    margin: auto;
+                                    margin-top: 10px;
+                                    /* text-align: center; */
+                                }
 
                                 .card-text1 {
                                     /* background-color: #8d532c; */
@@ -99,6 +139,7 @@ body {
                                     /* color: white; */
                                     border-radius: 4px;
                                     margin-left: 10px;
+
 
                                 }
 
@@ -113,10 +154,33 @@ body {
 
                             }
 
+                            .chapt_link:link {
+                                color: rgb(1, 109, 160);
+                                text-decoration: none;
+                            }
+
+                            .chapt_link:visited {
+                                color: rgb(226, 233, 226);
+                            }
+
+                            .chapt_link:hover {
+                                background-color: #393444;
+                                color: rgb(38, 158, 214);
+                                text-decoration: none;
+                                border-radius: 35px;
+                            }
+
+                            .chapt_link:active {
+                                color: white;
+                            }
+
                             .card-text2 {
                                 width: 95%;
+                                height: 20px;
+                                /* background-color: aliceblue; */
                                 position: absolute;
                                 bottom: 0;
+
                             }
 
                         }
@@ -127,9 +191,11 @@ body {
 
         .today {
             margin-bottom: 20px;
-            h3{
+
+            h3 {
                 color: aliceblue;
             }
+
             #card-row {
                 height: 340px;
 
@@ -199,7 +265,7 @@ body {
 
             .card {
                 margin-top: 25px;
-                background-color:  #FDF6E3;
+                background-color: #FDF6E3;
                 width: 290px;
                 height: 470px;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -245,16 +311,18 @@ body {
                     color: yellow;
                 }
             }
+
             .card:hover {
                 transform: scale(1.05);
                 box-shadow: 0 0 15px 5px rgba(255, 223, 100, 0.7);
             }
-             
+
         }
 
         .container {
 
             .row {
+                color: rgb(169, 184, 204);
 
                 .mag-pic {
                     margin: 25px;
@@ -276,14 +344,15 @@ body {
 
                     p {
                         height: 200px;
-                        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                        font-size: medium;
+                        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
                         text-align: justify;
                     }
-                    
+
                 }
 
-                .row1{
+
+
+                .row1 {
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
@@ -293,8 +362,36 @@ body {
                     background-color: #393444;
                     color: aliceblue;
                     padding-top: 15px;
-                    .row{
-                        margin-bottom:10px ;
+
+                    .row {
+                        margin-bottom: 10px;
+
+                        .col-sm-4 {
+                            a{
+                                text-decoration: none;
+                                color: #e79345;
+                                padding: 5px;
+                            }
+
+                            a:link {
+                                /* color: rgb(1, 109, 160); */
+                                /* text-decoration: underline #363432; */
+                            }
+            
+                            a:visited {
+                                /* color: rgb(39, 43, 39);   */
+                            }
+            
+                            a:hover {
+                                background-color:#5e5a66;
+                                border-radius: 10px;
+                                color: rgb(231, 228, 222);
+                            }
+            
+                            a:active {
+                                color: yellow;
+                            }
+                        }
                     }
                 }
             }
@@ -324,11 +421,30 @@ body {
             /* background-color: aqua; */
             margin-top: 20px;
             margin-right: 40px;
+            margin-bottom: 50px;
 
             img {
                 width: 15%;
                 height: 100%;
                 margin: 15px;
+            }
+        }
+
+        .edit_delete2 {
+            max-width: 430px;
+            height: 130px;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            border: 2px solid;
+            text-align: center;
+            border-radius: 25px;
+
+            img {
+                width: 15%;
+                height: 100px;
+                margin: 15px;
+
             }
         }
 
@@ -393,6 +509,228 @@ body {
             padding-bottom: 50px;
         }
     }
+
+    .loginForm{
+        /* background-color: aquamarine; */
+        max-width: 600px;
+        margin: auto;
+        padding: 50px;
+        justify-content: center;
+        color: #FDF6E3;
+
+        .container3 {
+            background-color: #3d3936;
+            width: 100%;
+            /* margin-top: 100px; */
+            padding: 50px;
+            border-radius: 20px;
+        }
+        
+        .container3:hover{
+            transform: scale(1.05);
+            box-shadow: 0 0 15px 5px rgba(170, 52, 5, 0.7);
+        }
+    }
+
+    .registerForm{
+        max-width: 580px;
+        margin: auto;
+        padding: 50px;
+        justify-content: center;
+        color: #FDF6E3;
+
+        .container3 {
+            background-color: #504f4f;
+            width: 100%;
+            /* margin-top: 100px; */
+            padding: 50px;
+            border-radius: 20px;
+        }
+        
+        .container3:hover{
+            transform: scale(1.05);
+            box-shadow: 0 0 15px 5px rgba(170, 52, 5, 0.7);
+        }
+    }
+    .donationform {
+        /* background-color: antiquewhite; */
+        max-width: 500px;
+        height: 350px;
+        position: relative;
+        margin: auto;
+
+        form {
+            width: 400px;
+            /* height:250px; */
+            position: absolute;
+            top: 50px;
+            margin-left: 45px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        form:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px 5px rgba(255, 223, 100, 0.7);
+        }
+    }
+
+    .mangaform {
+        /* background-color: rgb(71, 69, 65); */
+        max-width: 500px;
+        height: 680px;
+        position: relative;
+        margin: auto;
+        color: antiquewhite;
+
+        form {
+            background-color: rgb(10, 100, 100);
+            width: 400px;
+            position: absolute;
+            top: 50px;
+            margin-top: 10px;
+            margin-left: 45px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        form:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px 5px rgba(152, 172, 177, 0.7);
+        }
+    }
+
+    .chapterform{
+        max-width: 500px;
+        height: 500px;
+        position: relative;
+        margin: auto;
+        color: antiquewhite;
+
+        form {
+            background-color: rgb(10, 100, 100);
+            width: 300px;
+            position: absolute;
+            top: 50px;
+            margin-top: 10px;
+            margin-left: 100px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        form:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px 5px rgba(152, 172, 177, 0.7);
+        }
+    }
+    
+    .editChaptform{
+        max-width: 500px;
+        height: 440px;
+        position: relative;
+        margin: auto;
+        color: antiquewhite;
+
+        form {
+            background-color: rgb(10, 100, 100);
+            width: 400px;
+            position: absolute;
+            top: 50px;
+            margin-top: 10px;
+            margin-left: 45px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        form:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px 5px rgba(152, 172, 177, 0.7);
+        }
+    }
+
+    .chapterimageform{
+        max-width: 500px;
+        height: 450px;
+        position: relative;
+        margin: auto;
+        color: antiquewhite;
+
+        form {
+            background-color: rgb(10, 100, 100);
+            width: 300px;
+            position: absolute;
+            top: 50px;
+            margin-top: 10px;
+            margin-left: 100px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        form:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px 5px rgba(152, 172, 177, 0.7);
+        }
+    }
+
+    .editChaptImageform{
+        max-width: 500px;
+        height: 440px;
+        position: relative;
+        margin: auto;
+        color: antiquewhite;
+
+        form {
+            background-color: rgb(10, 100, 100);
+            width: 400px;
+            position: absolute;
+            top: 50px;
+            margin-top: 10px;
+            margin-left: 45px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        form:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px 5px rgba(152, 172, 177, 0.7);
+        }
+    }
+
+    .deleteForm {
+        max-width: 500px;
+        height: 350px;
+        margin: auto;
+        padding: 50px;
+        color: antiquewhite;
+        text-align: center;
+
+        h4 {
+            padding-top: 50px;
+            margin-left: 40px;
+            margin-bottom: 25px;
+        }
+
+        .form1 {
+            display: flex;
+            flex-direction: row;
+            /* background-color: aliceblue; */
+            justify-content: center;
+            gap: 35px;
+        }
+    }
+
+
+    .form1 .btn:hover {
+        transform: scale(1.25);
+        box-shadow: 0 0 15px 5px rgba(214, 216, 208, 0.6);
+    }
+
+
+
 
     footer {
         position: relative;

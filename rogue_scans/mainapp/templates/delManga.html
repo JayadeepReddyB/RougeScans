@@ -4,12 +4,15 @@ Delete Manga
 {% endblock %}
 
 {% block content %}
-
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-danger">Confirm Delete</button>
-</form>
-<a href="{% url 'mag_details' Mag.id %}" class="btn btn-outline-secondary">Cancel</a>                                             >
-
+<div class="deleteForm">
+    <h4>Are you sure you want to delete <strong>{{ object.name }}</strong>?</h4>
+    <div class="form1">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-outline-danger">Confirm Delete</button>
+        </form>
+        <a href="{% url 'mag_details' object.name object.id %}" class="btn btn-outline-info">Cancel</a>
+    </div>
+</div>
 {% endblock %}

@@ -5,10 +5,11 @@ Add Chapter Image
 
 {% block content %}
 
-<form method="post" enctype="multipart/form-data">
+<div class="chapterimageform">
+    <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Add Chapter Image</button>
+    <button type="submit" class="btn btn-outline-info">Add Chapter Image</button>
 </form>
-
+</div>
 {% endblock %}

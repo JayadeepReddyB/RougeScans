@@ -5,11 +5,12 @@ Add Chapter
 
 {% block content %}
 
-<form method="post" enctype="multipart/form-data">
+<div class="chapterform">
+    <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Add Chapter</button>
+    <button type="submit" class="btn btn-outline-info">Add Chapter</button>
 </form>
-
+</div>
 
 {% endblock %}

@@ -21,9 +21,9 @@
     {% if user.is_staff %}
     <div class="edit_delete col-md-4">
         <a href="{% url 'add_chapter_image' %}" class="col-md-2" title="Add Chapter Image">
-            <img src="{% static 'images/other/img1.png' %}" alt="" >
+            <img src="{% static 'images/other/img1.png' %}" alt="">
         </a>
-        <a href="#" class="col-md-2">
+        <a href="{% url 'edit_chapter_image' chapt.id %}" class="col-md-2">
             <img src="{% static 'images/other/img2.png' %}" alt="" title="Edit Chapter Image">
         </a>
         <a href="#" class="col-md-2">
@@ -73,22 +73,31 @@
 
     <div class="chapter_images">
         {% for item in chapt_img %}
-
         {% if item.image %}
-        <img class="images" src="{{item.image.url}}" alt="">
-        {% else %}
-        <span>Coming Soon....</span>
-        {% endif %}
+            <img class="images" src="{{ item.image.url }}" alt="">
 
-        {% empty %}
+            {% if user.is_authenticated and user.is_staff %}
+            <div class="edit_delete2">
+                <a href="{% url 'edit_chapter_image' item.id %}" class="col-md-2">
+                    <img src="{% static 'images/other/img2.png' %}" alt="" title="Edit Chapter Image">
+                </a>
+                <a href="{% url 'del_chapter_image' item.id %}" class="col-md-2">
+                    <img src="{% static 'images/other/img3.png' %}" alt="" title="Delete Chapter Image">
+                </a>
+            </div>
+            {% endif %}
+
+        {% else %}
+            <span>Coming Soon....</span>
+        {% endif %}
+    {% empty %}
         <div class="animation">
             <video autoplay loop muted class="stay-tuned-video">
                 <source src="{% static 'video/stay-tuned.mp4' %}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-
-        {% endfor %}
+    {% endfor %}
     </div>
 
     <div class="last_select">

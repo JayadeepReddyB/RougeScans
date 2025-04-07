@@ -43,13 +43,14 @@
         <div class="row row-cols-5 row-cols " id="card-row">
             {% for item in Mags %}
             <div class="col">
-                <div class="card {% if forloop.first %}latest-chapter{% endif %}">
-                    <img src="{{item.pic}}" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{item.name}}</h5>
-                        <p class="card-text">chapter </p>
+                <a href="{% url 'mag_details' item.name item.id %} " style="text-decoration: none; color: inherit;">
+                    <div class="card {% if forloop.first %}latest-chapter{% endif %}">
+                        <img src="{{item.pic}}" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             {% endfor %}
         </div>
@@ -69,10 +70,10 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <a href="{% url 'mag_details' item.name item.id %}">
-                                        <h5 class="card-title">{{item.name}}</h5>
+                                    <a href="{% url 'mag_details' item.name item.id %}" class="card-title">
+                                        <h4>{{item.name}}</h4>
                                     </a>
-
+                                    <div class="card-mid">
                                     {% for chapter in item.latest_chapters|slice:3 %}
                                     <div class="card-text-row">
                                         <a href="{% url 'chapter_details' chapter.id %}" class="chapt_link">
@@ -83,6 +84,7 @@
                                     {% empty %}
                                     <p class="card-text">Coming Soon...</p>
                                     {% endfor %}
+                                </div>
                                     <p class="card-text2"><small class="text-body-secondary">Last updated 3 mins
                                             ago</small>
                                     </p>

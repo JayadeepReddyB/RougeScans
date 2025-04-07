@@ -11,7 +11,6 @@ donation History
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Donation ID</th>
             <th>Donation Date</th>
             <th>Status</th>
             <th>Total Amount</th>
@@ -21,7 +20,6 @@ donation History
     <tbody>
         {% for donation in donations %}
         <tr>
-            <td>#{{ donation.id }}</td>
             <td>{{ donation.donation_date|date:"d M Y, H:i" }}</td>
             <td>{{ donation.status }}</td>
             <td>₹{{ donation.amount }}</td>

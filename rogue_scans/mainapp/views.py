@@ -10,6 +10,8 @@ from django.db.models import Prefetch
 
 from django.views.generic import CreateView,UpdateView,DeleteView,ListView
 
+from .forms import MangaForm,AddChapterForm,EditChapterForm,ChapterImageForm,EditChapterImageForm
+
 # from django.views.generic import ListView
 # Create your views here.
 
@@ -66,27 +68,28 @@ def searchView(request):
 # 1. C - Create
 class AddManga(CreateView):
     model = Manga # specifying the schema to insert record into
-    fields = '__all__'
+    form_class = MangaForm
     template_name = 'addManga.html'
     success_url = reverse_lazy('mangas') # redirect to products page after adding product
 
 class AddChapter(CreateView):
     model = Chapter
-    fields = '__all__'
+    form_class = AddChapterForm   
     template_name = 'addChapter.html'
     def get_success_url(self):
         return reverse('mag_details', kwargs={'name': self.object.manga.name,'id' : self.object.manga.id})
 
 class EditManga(UpdateView):
     model = Manga
-    fields = "__all__"
+    form_class = MangaForm
     template_name = 'editManga.html'
     # success_url = reverse_lazy('mag_details Mag.id') # The reverse_lazy the id format is not proper 
     def get_success_url(self):
-        return reverse('mag_details', kwargs={'id' : self.object.pk})
+        return reverse('mag_details', kwargs={'name': self.object.name,'id': self.object.id})
+    
 class EditChapter(UpdateView):
     model = Chapter
-    fields = ["title", "chapter_number", "release_date"]
+    form_class = EditChapterForm
     template_name = "editChapter.html"
     def get_success_url(self):
         return reverse('mag_details', kwargs={'name': self.object.manga.name,'id' : self.object.manga.id})
@@ -94,7 +97,9 @@ class EditChapter(UpdateView):
 class DelManga(DeleteView):
     model = Manga
     template_name = 'delManga.html'
-    success_url = reverse_lazy('mangas')
+    def get_success_url(self):
+        return reverse('mag_details', kwargs={'name': self.object.manga.name,'id' : self.object.manga.id})
+
 
 class DelChapter(DeleteView):
     model = Chapter
@@ -121,9 +126,23 @@ def chapter_details(request,chapter_id):
     return render(request, 'chapter_details.html', context)
 
 
-class AddChapter(CreateView):
+class AddChapterImage(CreateView):
     model = ChapterImage
-    fields = '__all__'
+    form_class = ChapterImageForm
     template_name = 'addChapterImage.html'
     def get_success_url(self):
         return reverse('chapter_details', kwargs={'chapter_id': self.object.chapter.id})
+
+class EditChapterImage(UpdateView):
+    model = ChapterImage
+    form_class = EditChapterImageForm
+    template_name = "editChapterImage.html"
+    def get_success_url(self):
+        return reverse('chapter_details', kwargs={'id' : self.object.chapter.id})
+ 
+class DelChapterImage(DeleteView):
+    model = ChapterImage
+    template_name = 'delChapterImage.html'
+    def get_success_url(self):
+        return reverse('chapter_details', kwargs={'id' : self.object.chapter.id})
+    

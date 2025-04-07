@@ -1,11 +1,11 @@
 {% extends 'index.html' %}
 {% block title %}
-Edit Chapter
+Edit Chapter Image
 {% endblock %}
 
 {% block content %}
 
-<div class="editChaptform">
+<div class="editChaptImageform">
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

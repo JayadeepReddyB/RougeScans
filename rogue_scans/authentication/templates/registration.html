@@ -5,12 +5,17 @@
     Rogue-Scans | Register
 {% endblock %}
 {% block content %}
-<div class="form-div">
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <button class="btn btn-secondary">Register</button>
-    </form>
+<div class="registerForm">
+    <div class="container3">
+        <h4>Create an Account</h4><br>
+        <div class="form1">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-outline-secondary">Register</button>
+            </form>
+            <a href="{% url 'signin' %}" class="btn btn-outline-primary mt-2">Already have an account? Login</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

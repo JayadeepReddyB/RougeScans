@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block title %}
+Delete Chapter
+{% endblock %}
+
+{% block content %}
+
+<div class="deleteForm">
+    <h4>Are you sure you want to delete <strong>Chapter {{ object.chapter.chapter_number }}</strong> -- Image {{object.id }}?</h4>
+
+    {% if object.image %}
+    <p>
+        <strong>Image URL:</strong> 
+        <a href="{{ object.image.url }}" target="_blank">{{ object.image.url }}</a>
+    </p>
+    {% else %}
+    <p><em>No image available</em></p>
+    {% endif %}
+
+
+    <div class="form1">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-outline-danger">Confirm Delete</button>
+        </form>
+        <a href="{% url 'chapter_details' object.chapter.id %}" class="btn btn-outline-secondary">Cancel</a>
+    </div>
+</div>
+{% endblock %}
