@@ -95,8 +95,7 @@ class EditChapter(UpdateView):
 class DelManga(DeleteView):
     model = Manga
     template_name = 'delManga.html'
-    def get_success_url(self):
-        return reverse('mag_details', kwargs={'name': self.object.manga.name,'id' : self.object.manga.id})
+    success_url = reverse_lazy('mangas')
 
 
 class DelChapter(DeleteView):
@@ -142,5 +141,4 @@ class DelChapterImage(DeleteView):
     model = ChapterImage
     template_name = 'delChapterImage.html'
     def get_success_url(self):
-        return reverse('chapter_details', kwargs={'id' : self.object.chapter.id})
-    
+        return reverse_lazy('chapter_details', kwargs={'chapter_id': self.object.chapter.pk})

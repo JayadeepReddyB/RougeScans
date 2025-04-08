@@ -12,7 +12,7 @@ Delete Manga
             {{ form.as_p }}
             <button type="submit" class="btn btn-outline-danger">Confirm Delete</button>
         </form>
-        <a href="{% url 'mag_details' object.name object.id %}" class="btn btn-outline-info">Cancel</a>
+        <a href="{% url 'mangas' %}" class="btn btn-outline-info">Cancel</a>
     </div>
 </div>
 {% endblock %}
