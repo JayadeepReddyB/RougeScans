@@ -74,17 +74,17 @@
                                         <h4>{{item.name}}</h4>
                                     </a>
                                     <div class="card-mid">
-                                    {% for chapter in item.latest_chapters|slice:3 %}
-                                    <div class="card-text-row">
-                                        <a href="{% url 'chapter_details' chapter.id %}" class="chapt_link">
-                                            <p class="card-text1">Chapter {{chapter.chapter_number}} -</p>
-                                            <p class="card-text3">{{chapter.title}}</p>
-                                        </a>
+                                        {% for chapter in item.latest_chapters|slice:3 %}
+                                        <div class="card-text-row">
+                                            <a href="{% url 'chapter_details' chapter.id %}" class="chapt_link">
+                                                <p class="card-text1">Chapter {{chapter.chapter_number}} -</p>
+                                                <p class="card-text3">{{chapter.title}}</p>
+                                            </a>
+                                        </div>
+                                        {% empty %}
+                                        <p class="card-text">Coming Soon...</p>
+                                        {% endfor %}
                                     </div>
-                                    {% empty %}
-                                    <p class="card-text">Coming Soon...</p>
-                                    {% endfor %}
-                                </div>
                                     <p class="card-text2"><small class="text-body-secondary">Last updated 3 mins
                                             ago</small>
                                     </p>
@@ -101,9 +101,16 @@
                 <div class="ad-image">
                     <img src="{% static 'images/ads/ad_img1.jpg' %}">
                 </div>
+
+                {% if user.is_staff %}
+                <a class="btn btn-outline-info disabled">
+                    <h4>Donations</h4>
+                </a>
+                {% else %}
                 <a href="{% url 'create_donation' %}" class="btn btn-outline-info">
                     <h4>Donations</h4>
                 </a>
+                {% endif %}
 
             </div>
         </div>

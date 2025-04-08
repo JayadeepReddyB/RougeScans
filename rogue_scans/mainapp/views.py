@@ -43,12 +43,10 @@ def manga_details(request, name,id):
     return HttpResponse(template.render(context, request))
 
 
-def manga(request):  # This is equivalent to ListView
-    mangas = Manga.objects.all() # querying all records in the DB of entity type `Product`
-    # i.e. this translates to the DQL :-> `SELECT * FROM PRODUCT;`
-    # the `products` variable now contains a collection of all `Product` class objects.
+def manga(request):  
+    mangas = Manga.objects.all() 
     context = {
-        'mags' : mangas, # the key `prods` will now be available to use in the django template design 
+        'mags' : mangas,  
         'current_page' : 'mangas'
 
     } # context dictionary for passing data for rendering 
