@@ -28,6 +28,7 @@ body {
 
 
         /* Styling for home page */
+
         .carousel {
             height: 400px;
             width: 100%;
@@ -66,7 +67,6 @@ body {
 
                         .card-body {
                             position: relative;
-                            /* background-color: aquamarine; */
                             width: 310px;
                             height: 200px;
                             margin-left: 10px;
@@ -74,13 +74,11 @@ body {
                             .card-text {
                                 text-align: center;
                                 width: 100%;
-                                /* background-color: aqua; */
 
                             }
 
                             h4 {
                                 height: 50px;
-                                /* background-color: #FDF6E3; */
                             }
 
 
@@ -94,7 +92,6 @@ body {
                             }
 
                             .card-title:hover {
-                                /* background-color: #393444; */
                                 color: rgb(38, 158, 214);
                                 text-decoration: none;
                                 border-radius: 35px;
@@ -105,17 +102,12 @@ body {
                                 color: white;
                             }
 
-                            /* .card-mid{
-                                height: ;
-                            } */
-
 
                             .card-text-row {
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: center;
                                 width: 110%;
-                                /* gap: -5px; */
                                 line-height: 0.2;
 
                             }
@@ -126,17 +118,13 @@ body {
 
                                 p {
                                     height: 20px;
-                                    /* margin-bottom: 20px; */
                                     margin: auto;
                                     margin-top: 10px;
-                                    /* text-align: center; */
                                 }
 
                                 .card-text1 {
-                                    /* background-color: #8d532c; */
                                     font-size: 0.95em;
                                     padding: 2px 5px;
-                                    /* color: white; */
                                     border-radius: 4px;
                                     margin-left: 10px;
 
@@ -144,10 +132,8 @@ body {
                                 }
 
                                 .card-text3 {
-                                    /* background-color: #90A19D; */
                                     font-size: 0.95em;
                                     padding: 2px 5px;
-                                    /* color: white; */
                                     border-radius: 4px;
                                     width: 200px;
                                 }
@@ -177,7 +163,6 @@ body {
                             .card-text2 {
                                 width: 95%;
                                 height: 20px;
-                                /* background-color: aliceblue; */
                                 position: absolute;
                                 bottom: 0;
 
@@ -189,6 +174,8 @@ body {
             }
         }
 
+        /* Today's Popular styling */
+
         .today {
             margin-bottom: 20px;
 
@@ -199,12 +186,9 @@ body {
             #card-row {
                 height: 340px;
 
-                /* background-color:violet; */
                 .card {
                     width: 230px;
                     height: 340px;
-                    /* border-radius: 50%; */
-                    /* background-color: aqua; */
 
                     &:hover {
                         box-shadow:
@@ -224,12 +208,10 @@ body {
                         h5 {
                             font-size: medium;
                             height: 50%;
-                            /* background-color: aqua; */
                         }
 
                         p {
                             height: 50%;
-                            /* background-color: #363432; */
                         }
                     }
                 }
@@ -237,9 +219,9 @@ body {
         }
 
 
+        /* Ad styling */
 
         .ad-box {
-            /* color: rgb(8, 99, 184); */
 
             .ad-image {
                 margin-top: 30px;
@@ -256,6 +238,8 @@ body {
                 color: rgb(2, 109, 109);
             }
         }
+
+        /* Mangas and search result styling */
 
         .card-group {
             display: grid;
@@ -283,7 +267,6 @@ body {
                 }
 
                 .card-text {
-                    /* height: 75%; */
                     margin: auto;
                     text-align: center;
                     width: 250px;
@@ -318,6 +301,8 @@ body {
             }
 
         }
+
+        /* Manga Details Styling */
 
         .container {
 
@@ -372,15 +357,6 @@ body {
                                 color: #e79345;
                                 padding: 5px;
                             }
-
-                            a:link {
-                                /* color: rgb(1, 109, 160); */
-                                /* text-decoration: underline #363432; */
-                            }
-            
-                            a:visited {
-                                /* color: rgb(39, 43, 39);   */
-                            }
             
                             a:hover {
                                 background-color:#5e5a66;
@@ -396,6 +372,8 @@ body {
                 }
             }
         }
+
+        /* Chapter Details Styling  */
 
         .chapter_details {
             background-color: rgb(14, 13, 13);
@@ -418,7 +396,6 @@ body {
         .edit_delete {
             width: 230px;
             height: 35px;
-            /* background-color: aqua; */
             margin-top: 20px;
             margin-right: 40px;
             margin-bottom: 50px;
@@ -458,7 +435,6 @@ body {
         .chapt_select {
             width: 500px;
             margin-left: 378px;
-            /* background-color: aqua; */
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -480,7 +456,6 @@ body {
             }
 
             span {
-                /* background-color: rgb(80, 47, 4); */
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -510,8 +485,9 @@ body {
         }
     }
 
+    /* Forms Styling */
+
     .loginForm{
-        /* background-color: aquamarine; */
         max-width: 600px;
         margin: auto;
         padding: 50px;
@@ -521,7 +497,6 @@ body {
         .container3 {
             background-color: #3d3936;
             width: 100%;
-            /* margin-top: 100px; */
             padding: 50px;
             border-radius: 20px;
         }
@@ -542,7 +517,6 @@ body {
         .container3 {
             background-color: #504f4f;
             width: 100%;
-            /* margin-top: 100px; */
             padding: 50px;
             border-radius: 20px;
         }
@@ -553,7 +527,6 @@ body {
         }
     }
     .donationform {
-        /* background-color: antiquewhite; */
         max-width: 500px;
         height: 350px;
         position: relative;
@@ -561,7 +534,6 @@ body {
 
         form {
             width: 400px;
-            /* height:250px; */
             position: absolute;
             top: 50px;
             margin-left: 45px;
@@ -575,7 +547,6 @@ body {
     }
 
     .mangaform {
-        /* background-color: rgb(71, 69, 65); */
         max-width: 500px;
         height: 680px;
         position: relative;
@@ -717,7 +688,6 @@ body {
         .form1 {
             display: flex;
             flex-direction: row;
-            /* background-color: aliceblue; */
             justify-content: center;
             gap: 35px;
         }
